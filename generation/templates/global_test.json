@@ -16,7 +16,7 @@
             "tsucs": false
           },
   "shared_parameters": {
-            "test_number": 10,
+            "test_number": 5,
             "number_of_child_systems": 1,
             "kind_step": "even",
             "t_span": [0, 105],
