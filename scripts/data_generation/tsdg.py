@@ -383,6 +383,28 @@ class DynamicalSystem:
         )
         return self.solution
 
+    def solve_rk4(self, dt):
+        """Fixed-step RK4 integration."""
+        y = [self.y0]
+        for i in range(1, len(self.t)):
+            u = y[-1]
+            h = dt
+            f = self.f
+            k1 = f(u)
+            k2 = f(u + 0.5*h*k1)
+            k3 = f(u + 0.5*h*k2)
+            k4 = f(u + h*k3)
+            y_next = u + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+            y.append(y_next)
+        y = np.array(y).T
+        self.solution = type('Solution', (), {})()  # simple object to mimic solve_ivp
+        self.solution.t = self.t
+        self.solution.y = y
+        return self.solution
+
+
+
+
     def animate(self, trail_length=150, interval=10, show=True):
         """Generate a 3D animation of the trajectory."""
         if self.solution is None:
@@ -505,26 +527,6 @@ class DynamicalSystem:
         if show and not self.notebook:
             plt.show()
         return fig
-
-    # def to_dataframe(self, path=None):
-    #     """
-    #     Return a DataFrame with the time series.
-    #     If path is specified, save as CSV.
-    #     """
-    #     if self.solution is None:
-    #         raise ValueError("You must solve the system first.")
-
-    #     df = pd.DataFrame({"x": self.solution.y[0],
-    #                        "y": self.solution.y[1],
-    #                        "z": self.solution.y[2]},
-    #                       index=self.solution.t)
-
-    #     if path is not None:
-    #         df.to_csv(path, index=True)
-    #         print(f"Data saved to {path}")
-    #     return df
-    
-
 
     def to_dataframe(self, path=None):
         """
