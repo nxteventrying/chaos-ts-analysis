@@ -1,0 +1,258 @@
+  [
+    { "models":{
+      "aizawa": "True",
+      "chen": "True",
+      "chua" : "False",
+      "dadras" : "True",
+      "four_wing" : "False",
+      "halvorsen": "True",
+      "lorenz63": "True",
+      "loren83" : "True",
+      "ravinoch_fabrikant":"True",
+      "rossler": "True",
+      "sprott":"False",
+      "thomas":"False",
+      "tsucs":"True"
+    }
+
+    },
+    {
+      "test_number": 5,
+      "parent_model": "aizawa",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7],
+        "c": [28.5, 70],
+        "d": [1,2],
+        "e": [1,3],
+        "f": [2,4]
+
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "chen",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "alpha": [10, 15],
+        "beta": [2.66666666, 7],
+        "delta": [28.5, 70]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "chua",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "sigma": [10, 15],
+        "beta": [2.66666666, 7],
+        "rho": [28.5, 70]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "dadras",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7],
+        "c": [28.5, 70],
+        "d": [3,4],
+        "e": [1,6]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "four_wing",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7],
+        "c": [28.5, 70]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "halvorsen",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "lorenz63",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "sigma": [10, 15],
+        "beta": [2.66666666, 7],
+        "rho": [28.5, 70]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 1050],
+      "num_points": 7350
+    },
+    {
+      "test_number": 5,
+      "parent_model": "lorenz83",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7],
+        "f": [28.5, 70],
+        "g": [3,5.555]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "ravinoch_fabrikant",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "alpha": [10, 15],
+        "gamma": [2.66666666, 7]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "rossler",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7],
+        "c": [28.5, 70]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "sprott",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [2.66666666, 7]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "thomas",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "b": [10, 15]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    },
+    {
+      "test_number": 5,
+      "parent_model": "tsucs",
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "params": {
+        "a": [10, 15],
+        "b": [10, 15],
+        "c": [10, 15],
+        "d": [10, 15],
+        "e": [10, 15],
+        "f": [10, 15]
+      },
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      },
+      "t_span": [0, 105000],
+      "num_points": 735000
+    }
+  ]
+  

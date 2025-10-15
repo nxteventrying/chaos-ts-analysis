@@ -1,0 +1,127 @@
+{ "run_mode": "global",
+  "warden": {
+            "aizawa": true,
+            "chen": false,
+            "chua": false,
+            "dadras": true,
+            "four_wing": false,
+            "halvorsen": false,
+            "lorenz63": true,
+            "lorenz83": false,
+            "ravinoch_fabrikant": false,
+            "rossler": true,
+            "sprott": true,
+            "thomas": false,
+            "tsucs": false
+          },
+  "shared_parameters": {
+            "test_number": 2,
+            "number_of_child_systems": 100,
+            "kind_step": "even",
+            "t_span": [0, 105],
+            "num_points": 10000,
+            "initial_conditions": {
+             "x": {"min": 0.1, "max": 1},
+             "y": {"min": 0.1, "max": 1},
+             "z": {"min": 0.1, "max": 1}}
+
+          },
+   "models": {
+    
+      "aizawa" : {
+        "params": {
+        "a": [0.95, 1.1],
+        "b": [0.7, 0.9],
+        "c": [0.6, 0.8],
+        "d": [3.5,4],
+        "e": [0.25,0.3],
+        "f": [0.1,0.2]  
+     }
+    },
+      "chen" : {
+      "params": {
+        "alpha": [40, 5.1],
+        "beta": [-10, -9.99],
+        "delta": [-0.38, -0.37]
+      }
+    },
+    
+      "chua": {
+      "params": {
+        "sigma": [10, 15],
+        "beta": [2.66666666, 7],
+        "rho": [28.5, 70]
+      }
+    },
+    
+      "dadras" : {"params": {
+        "a": [3, 4],
+        "b": [2.7, 3],
+        "c": [1.7, 2],
+        "d": [2,3],
+        "e": [9,10]
+      }
+    },
+      "four_wing": {
+      "params": {
+        "a": [0.2, 0.4],
+        "b": [0.01, 0.03],
+        "c": [-0.4, -0.3]
+      }
+    },
+      "halvorsen": {
+      "params": {
+        "a": [1.89, 1.95]
+      }
+    },
+      "lorenz63": {
+      "params": {
+        "sigma": [10, 15],
+        "beta": [2.66666666, 7],
+        "rho": [28.5, 70]
+      }
+    },
+      "lorenz83": {
+      "params": {
+        "a": [0.95, 1],
+        "b": [7.91, 8.91],
+        "f": [4.83, 5.83],
+        "g": [4.66,5.66]
+      }
+    },
+      "ravinoch_fabrikant":{
+      "params": {
+        "alpha": [0.14, 0.6],
+        "gamma": [0.1, 0.4]
+      }
+    },
+      "rossler" : {
+      "params": {
+        "a": [0.2, 0.3],
+        "b": [0.2, 0.3],
+        "c": [5.7, 5.8]
+      } 
+    },
+      "sprott" : {
+      "params": {
+        "a": [2.07, 2.3],
+        "b": [1.79, 2]
+      } 
+    }, 
+      "thomas": {
+      "params": {
+        "b": [0.20808186, 0.30808186]
+      } 
+    },
+    "tsucs":{
+      "params": {
+        "a": [32.48, 33.48],
+        "b": [45.84, 55],
+        "c": [1.18, 1.3],
+        "d": [0.13, 0.4],
+        "e": [0.57, 0.6],
+        "f": [14.7, 15]
+      }
+    }
+    }
+}
