@@ -467,7 +467,7 @@ class DynamicalSystem:
             ax = fig.add_subplot(111, projection="3d")
             ax.plot(*self.solution.y, color="purple", lw=0.5)
             ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("z")
-            ax.set_title("Attractor (3D)")
+            ax.set_title("Atractor de Lorenz63")
 
         elif kind == "projections":
             if variable is None:
@@ -503,7 +503,7 @@ class DynamicalSystem:
                     axs[i].plot(self.solution.t, self.solution.y[i], color=colors[i])
                     axs[i].set_ylabel(labels[i]); axs[i].grid()
                 axs[-1].set_xlabel("Time")
-                fig.suptitle("Time Series")
+                fig.suptitle("Series de Tiempo de Lorenz63")
             else:
                 var_map = {"x": 0, "y": 1, "z": 2}
                 if variable not in var_map:
