@@ -346,6 +346,139 @@
 #         return df
 
 
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
+# from scipy.integrate import solve_ivp
+# import pandas as pd
+# import matplotlib.animation as animation
+# import os
+
+# class DynamicalSystem:
+#     """
+#     Class to solve and visualize dynamical systems defined by ODEs.
+#     """
+
+#     def __init__(self, f, y0, t, method="RK45", notebook=False):
+#         self.f = f
+#         self.y0 = np.atleast_1d(y0)
+#         self.t = t
+#         self.method = method
+#         self.solution = None
+#         self.notebook = notebook  # <- switch for Jupyter
+
+#     def set_method(self, new_method):
+#         """Change the integration method."""
+#         self.method = new_method
+#         print(f"Integration method changed to {self.method}")
+
+#     def solve(self):
+#         """Solve the ODE system with the selected method."""
+#         self.solution = solve_ivp(
+#             self.f,
+#             [self.t[0], self.t[-1]],
+#             self.y0,
+#             t_eval=self.t,
+#             method=self.method
+#         )
+#         return self.solution
+
+#     def solve_rk4(self, dt):
+#         """Fixed-step RK4 integration."""
+#         y = [self.y0]
+#         for i in range(1, len(self.t)):
+#             u = y[-1]
+#             h = dt
+#             f = self.f
+#             k1 = f(u)
+#             k2 = f(u + 0.5*h*k1)
+#             k3 = f(u + 0.5*h*k2)
+#             k4 = f(u + h*k3)
+#             y_next = u + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+#             y.append(y_next)
+#         y = np.array(y).T
+#         self.solution = type('Solution', (), {})()  # simple object to mimic solve_ivp
+#         self.solution.t = self.t
+#         self.solution.y = y
+#         return self.solution
+
+
+
+
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
+# from scipy.integrate import solve_ivp
+# import pandas as pd
+# import matplotlib.animation as animation
+# import os
+
+# class DynamicalSystem:
+#     """
+#     Class to solve and visualize dynamical systems defined by ODEs.
+#     """
+
+#     def __init__(self, f, y0, t, method="RK45", notebook=False):
+#         self.f = f
+#         self.y0 = np.atleast_1d(y0)
+#         self.t = t
+#         self.method = method
+#         self.solution = None
+#         self.notebook = notebook
+
+#     def set_method(self, new_method):
+#         """Change the integration method."""
+#         self.method = new_method
+#         print(f"Integration method changed to {self.method}")
+
+#     def solve(self):
+#         """Solve the ODE system with the selected method."""
+#         if self.method == "RK4":
+#             # Use custom RK4 implementation
+#             dt = self.t[1] - self.t[0]  # Assumes uniform time spacing
+#             return self.solve_rk4(dt)
+#         else:
+#             # Use scipy's solve_ivp
+#             self.solution = solve_ivp(
+#                 self.f,
+#                 [self.t[0], self.t[-1]],
+#                 self.y0,
+#                 t_eval=self.t,
+#                 method=self.method
+#             )
+#             return self.solution
+
+#     def solve_rk4(self, dt):
+#         """Fixed-step RK4 integration."""
+#         y = [self.y0]
+#         t_current = self.t[0]
+        
+#         for i in range(1, len(self.t)):
+#             u = y[-1]
+#             h = dt
+            
+#             # RK4 steps - note that f expects (t, y) signature
+#             k1 = self.f(t_current, u)
+#             k2 = self.f(t_current + 0.5*h, u + 0.5*h*k1)
+#             k3 = self.f(t_current + 0.5*h, u + 0.5*h*k2)
+#             k4 = self.f(t_current + h, u + h*k3)
+            
+#             y_next = u + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+#             y.append(y_next)
+#             t_current += h
+            
+#         y = np.array(y).T
+        
+#         # Mimic solve_ivp's output structure
+#         self.solution = type('Solution', (), {})()
+#         self.solution.t = self.t
+#         self.solution.y = y
+#         self.solution.success = True
+        
+#         return self.solution
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -365,7 +498,7 @@ class DynamicalSystem:
         self.t = t
         self.method = method
         self.solution = None
-        self.notebook = notebook  # <- switch for Jupyter
+        self.notebook = notebook
 
     def set_method(self, new_method):
         """Change the integration method."""
@@ -374,34 +507,55 @@ class DynamicalSystem:
 
     def solve(self):
         """Solve the ODE system with the selected method."""
-        self.solution = solve_ivp(
-            self.f,
-            [self.t[0], self.t[-1]],
-            self.y0,
-            t_eval=self.t,
-            method=self.method
-        )
-        return self.solution
+        if self.method == "RK4":
+            # Use custom RK4 implementation
+            dt = self.t[1] - self.t[0]  # Assumes uniform time spacing
+            return self.solve_rk4(dt)
+        else:
+            # Use scipy's solve_ivp
+            self.solution = solve_ivp(
+                self.f,
+                [self.t[0], self.t[-1]],
+                self.y0,
+                t_eval=self.t,
+                method=self.method
+            )
+            return self.solution
 
     def solve_rk4(self, dt):
         """Fixed-step RK4 integration."""
         y = [self.y0]
+        
         for i in range(1, len(self.t)):
             u = y[-1]
             h = dt
-            f = self.f
-            k1 = f(u)
-            k2 = f(u + 0.5*h*k1)
-            k3 = f(u + 0.5*h*k2)
-            k4 = f(u + h*k3)
+            
+            # RK4 steps - handle both f(t, y) and f(y) signatures
+            try:
+                # Try f(t, y) signature first (solve_ivp standard)
+                k1 = self.f(self.t[i-1], u)
+                k2 = self.f(self.t[i-1] + 0.5*h, u + 0.5*h*k1)
+                k3 = self.f(self.t[i-1] + 0.5*h, u + 0.5*h*k2)
+                k4 = self.f(self.t[i-1] + h, u + h*k3)
+            except TypeError:
+                # Fall back to f(y) signature (fixed parameters)
+                k1 = self.f(u)
+                k2 = self.f(u + 0.5*h*k1)
+                k3 = self.f(u + 0.5*h*k2)
+                k4 = self.f(u + h*k3)
+            
             y_next = u + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
             y.append(y_next)
+            
         y = np.array(y).T
-        self.solution = type('Solution', (), {})()  # simple object to mimic solve_ivp
+        
+        # Mimic solve_ivp's output structure
+        self.solution = type('Solution', (), {})()
         self.solution.t = self.t
         self.solution.y = y
+        self.solution.success = True
+        
         return self.solution
-
 
 
 
@@ -467,7 +621,7 @@ class DynamicalSystem:
             ax = fig.add_subplot(111, projection="3d")
             ax.plot(*self.solution.y, color="purple", lw=0.5)
             ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("z")
-            ax.set_title("Attractor (3D)")
+            ax.set_title("Atractor de Lorenz63")
 
         elif kind == "projections":
             if variable is None:
@@ -503,7 +657,7 @@ class DynamicalSystem:
                     axs[i].plot(self.solution.t, self.solution.y[i], color=colors[i])
                     axs[i].set_ylabel(labels[i]); axs[i].grid()
                 axs[-1].set_xlabel("Time")
-                fig.suptitle("Time Series")
+                fig.suptitle("Series de Tiempo de Lorenz63")
             else:
                 var_map = {"x": 0, "y": 1, "z": 2}
                 if variable not in var_map:
