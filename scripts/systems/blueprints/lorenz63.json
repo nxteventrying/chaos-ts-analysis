@@ -1,4 +1,0 @@
-{
-    "system_name": "lorenz63",
-    "parameters": ["sigma", "beta", "rho"] 
-  }
