@@ -1,0 +1,52 @@
+{
+    "run_mode": "global",
+    "shared_parameters": {
+      "test_number": 5,
+      "number_of_child_systems": 1,
+      "kind_step": "even",
+      "t_span": [0, 105000],
+      "num_points": 735000,
+      "initial_conditions": {
+        "x": {"min": 1.0, "max": 5.0},
+        "y": {"min": 1.0, "max": 3.5},
+        "z": {"min": 1.0, "max": 4.0}
+      }
+    },
+    "warden": {
+      "aizawa": true,
+      "chen": true,
+      "chua": false,
+      "dadras": true,
+      "four_wing": false,
+      "halvorsen": true,
+      "lorenz63": true,
+      "lorenz83": true,
+      "ravinoch_fabrikant": true,
+      "rossler": true,
+      "sprott": false,
+      "thomas": false,
+      "tsucs": true
+    },
+    "models": [
+      {
+        "parent_model": "aizawa",
+        "params": {
+          "a": [10, 15],
+          "b": [2.66666666, 7],
+          "c": [28.5, 70],
+          "d": [1, 2],
+          "e": [1, 3],
+          "f": [2, 4]
+        }
+      },
+      {
+        "parent_model": "chen",
+        "params": {
+          "alpha": [10, 15],
+          "beta": [2.66666666, 7],
+          "delta": [28.5, 70]
+        }
+      }
+    ]
+  }
+  

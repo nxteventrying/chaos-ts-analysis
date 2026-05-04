@@ -1,0 +1,18 @@
+{
+    "test_number": 4,
+    "parent_model": "lorenz63",
+    "number_of_child_systems": 100,
+    "kind_step": "even",
+    "params": {
+      "sigma": [10, 15],
+      "beta": [2.66666666, 7],
+      "rho": [28.5, 70]
+    },
+    "initial_conditions": {
+      "x": {"min": 1.0, "max": 5.0},
+      "y": {"min": 1.0, "max": 3.5},
+      "z": {"min": 1.0, "max": 4.0}
+    },
+    "t_span": [0, 10500],
+    "num_points": 73500
+  }
